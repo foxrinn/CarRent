@@ -1,0 +1,10 @@
+### POST USER
+POST localhost:8080/user
+content-type: application/json
+
+{
+  "fio" : "Hrenov Hren Hrenych",
+  "email" : "hren@mail.ru",
+  "phone" : "899978651234",
+  "passport" : "12345678"
+}
