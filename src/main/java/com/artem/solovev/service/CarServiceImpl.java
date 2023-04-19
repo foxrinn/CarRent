@@ -5,6 +5,8 @@ import com.artem.solovev.repository.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CarServiceImpl implements CarService{
     private CarRepository carRepository;
@@ -21,5 +23,30 @@ public class CarServiceImpl implements CarService{
         } catch (Exception e) {
             throw new IllegalArgumentException("Could not add this car");
         }
+    }
+
+    @Override
+    public List<Car> searchByCategory(String category) {
+        return this.carRepository.searchByCategory(category);
+    }
+
+    @Override
+    public List<Car> searchByBrand(String brand) {
+        return this.carRepository.searchByBrand(brand);
+    }
+
+    @Override
+    public List<Car> searchByModel(String model) {
+        return this.carRepository.searchByModel(model);
+    }
+
+    @Override
+    public List<Car> searchByYear(int year) {
+        return this.carRepository.searchByYear(year);
+    }
+
+    @Override
+    public List<Car> searchByAvailable(boolean available) {
+        return this.carRepository.searchByAvailable(available);
     }
 }

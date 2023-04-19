@@ -8,3 +8,19 @@ content-type: application/json
   "phone" : "899978651234",
   "passport" : "12345678"
 }
+
+### POST CAR
+POST localhost:8080/car
+content-type: application/json
+
+{
+
+  "category" : "Luxury",
+  "brand" : "Mercedes-AMG",
+  "model" :"E63",
+  "year" : 2021,
+  "available" : "false"
+}
+
+### GET
+GET localhost:8080/car/category/Luxury

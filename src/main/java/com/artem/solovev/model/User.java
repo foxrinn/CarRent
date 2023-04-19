@@ -26,7 +26,7 @@ public class User {
     @NonNull
     private String phone;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     @NonNull
     private String passport;
 }
