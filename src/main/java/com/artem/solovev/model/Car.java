@@ -1,8 +1,9 @@
 package com.artem.solovev.model;
 
+import jakarta.persistence.*;
 import lombok.*;
 
-import javax.persistence.*;
+//import javax.persistence.*;
 
 @Data
 @NoArgsConstructor

@@ -1,10 +1,11 @@
 package com.artem.solovev.repository;
 
-import com.artem.solovev.model.User;
+import com.artem.solovev.model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
-    User findByEmail(String email);
+public interface RoleRepository extends JpaRepository<Role, Long> {
+
+    Role findByName(String name);
 }

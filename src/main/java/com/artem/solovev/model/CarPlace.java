@@ -1,9 +1,10 @@
 package com.artem.solovev.model;
 
+import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.Cascade;
 
-import javax.persistence.*;
+//import javax.persistence.*;
 import java.util.List;
 
 @Data
