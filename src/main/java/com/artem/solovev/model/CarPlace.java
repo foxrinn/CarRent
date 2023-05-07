@@ -30,6 +30,7 @@ public class CarPlace {
     @Column(nullable = false, unique = true)
     private String phone;
 
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "carPlace")
     @Cascade(value = org.hibernate.annotations.CascadeType.DELETE)
     private List<Car> listCars;

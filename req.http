@@ -9,8 +9,20 @@ content-type: application/json
   "passport" : "12345678"
 }
 
+### POST CARPlace
+POST localhost:8080/carplace
+content-type: application/json
+
+{
+  "country" : "Russia",
+  "city" : "Moscow",
+  "address" :"Red Square",
+  "phone" : "+7 999 999 99 99"
+}
+
+
 ### POST CAR
-POST localhost:8080/car
+POST localhost:8080/car/1
 content-type: application/json
 
 {
@@ -24,3 +36,4 @@ content-type: application/json
 
 ### GET
 GET localhost:8080/car/category/Luxury
+

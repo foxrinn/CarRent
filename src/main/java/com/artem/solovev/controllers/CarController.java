@@ -2,6 +2,8 @@ package com.artem.solovev.controllers;
 
 import com.artem.solovev.dto.ResponseResult;
 import com.artem.solovev.model.Car;
+import com.artem.solovev.model.CarPlace;
+import com.artem.solovev.service.CarPlaceService;
 import com.artem.solovev.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,16 +16,23 @@ import java.util.List;
 @RequestMapping("/car")
 public class CarController {
     private CarService carService;
+    private CarPlaceService carPlaceService;
 
     @Autowired
     public void setCarService(CarService carService) {
         this.carService = carService;
     }
 
-    //TODO когда будет готов модуль работы с CarPlaceService нужно будет сюда подать id магазина чтобы добавить его к автомобилю
-    @PostMapping
-    public ResponseEntity<ResponseResult<Car>> add(@RequestBody Car car){
+    @Autowired
+    public void setCarPlaceService(CarPlaceService carPlaceService) {
+        this.carPlaceService = carPlaceService;
+    }
+
+    @PostMapping(path = "/{idCarPlace}")
+    public ResponseEntity<ResponseResult<Car>> add(@PathVariable long idCarPlace, @RequestBody Car car){
         try {
+            CarPlace carPlace = this.carPlaceService.get(idCarPlace);
+            car.setCarPlace(carPlace);
             this.carService.add(car);
             return new ResponseEntity<>(new ResponseResult<>(car, null), HttpStatus.OK);
         } catch (Exception e) {
