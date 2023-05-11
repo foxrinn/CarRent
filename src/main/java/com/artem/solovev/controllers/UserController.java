@@ -6,10 +6,9 @@ import com.artem.solovev.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/user")
@@ -26,6 +25,17 @@ public class UserController {
         try {
             this.userService.add(user);
             return new ResponseEntity<>(new ResponseResult<>(user, null), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(new ResponseResult<>(null, e.getMessage()),
+                    HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping
+    public ResponseEntity<ResponseResult<List<User>>> get(){
+        try {
+            List<User> users = this.userService.get();
+            return new ResponseEntity<>(new ResponseResult<>(users, null), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(new ResponseResult<>(null, e.getMessage()),
                     HttpStatus.BAD_REQUEST);

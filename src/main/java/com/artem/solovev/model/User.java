@@ -29,4 +29,12 @@ public class User {
     @Column(nullable = false, unique = true)
     @NonNull
     private String passport;
+
+    @NonNull
+    @Column(nullable = false)
+    private String password;
+
+    @NonNull
+    @Column(nullable = false)
+    private String roles;
 }

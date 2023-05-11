@@ -6,8 +6,34 @@ content-type: application/json
   "fio" : "Hrenov Hren Hrenych",
   "email" : "hren@mail.ru",
   "phone" : "899978651234",
-  "passport" : "12345678"
+  "passport" : "12345678",
+  "password" : "123",
+  "roles" : "ROLE_ADMIN"
 }
+
+### POST USER
+POST localhost:8080/user
+content-type: application/json
+
+{
+  "fio" : "Petrov Petr Petrovich",
+  "email" : "hren1@mail.ru",
+  "phone" : "899978651235",
+  "passport" : "12345679",
+  "password" : "1234",
+  "roles" : "ROLE_USER"
+}
+
+### GET Users incorrect
+GET localhost:8080/user
+
+### GET Users incorrect
+GET localhost:8080/user
+Authorization: Basic hren1@mail.ru 1234
+
+### GET Users
+GET localhost:8080/user
+Authorization: Basic hren@mail.ru 123
 
 ### POST CARPlace
 POST localhost:8080/carplace
@@ -26,7 +52,6 @@ POST localhost:8080/car/1
 content-type: application/json
 
 {
-
   "category" : "Luxury",
   "brand" : "Mercedes-AMG",
   "model" :"E63",
