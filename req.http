@@ -1,4 +1,4 @@
-### POST USER
+### POST USER добавление админа (регистрация)
 POST localhost:8080/user
 content-type: application/json
 
@@ -11,7 +11,7 @@ content-type: application/json
   "roles" : "ROLE_ADMIN"
 }
 
-### POST USER
+### POST USER добавление пользователя (регистрация)
 POST localhost:8080/user
 content-type: application/json
 
@@ -31,11 +31,13 @@ GET localhost:8080/user
 GET localhost:8080/user
 Authorization: Basic hren1@mail.ru 1234
 
-### GET Users
+### GET Users список пользователей зарегистрированных
 GET localhost:8080/user
 Authorization: Basic hren@mail.ru 123
 
-### POST CARPlace
+
+
+### POST CARPlace добавить салон (страница админа)
 POST localhost:8080/carplace
 content-type: application/json
 
@@ -47,7 +49,7 @@ content-type: application/json
 }
 
 
-### POST CAR
+### POST CAR добавить машину (страница админа)
 POST localhost:8080/car/1
 content-type: application/json
 
@@ -56,9 +58,24 @@ content-type: application/json
   "brand" : "Mercedes-AMG",
   "model" :"E63",
   "year" : 2021,
-  "available" : "false"
+  "available" : "false",
+  "price" : 2000
 }
 
-### GET
+
+### GET получение машины (отображение у пользователя и админа)
 GET localhost:8080/car/category/Luxury
+
+
+
+### POST order добавление заказа (при введеных данных и выбранной машине создается заказ)
+POST localhost:8080/order/1
+content-type: application/json
+
+{
+  "countDays" : 5
+}
+
+### GET all order by id user (получение заказа для пользователя по его ID)
+GET localhost:8080/order/1 (выводит заказы для пользователя)
 

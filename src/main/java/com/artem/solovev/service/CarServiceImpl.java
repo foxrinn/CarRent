@@ -49,4 +49,9 @@ public class CarServiceImpl implements CarService{
     public List<Car> searchByAvailable(boolean available) {
         return this.carRepository.searchByAvailable(available);
     }
+
+    @Override
+    public Car get(long id) {
+        return this.carRepository.findById(id).orElseThrow(()->new IllegalArgumentException("Car is not exists!"));
+    }
 }

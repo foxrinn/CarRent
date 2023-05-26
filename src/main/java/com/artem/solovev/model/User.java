@@ -1,8 +1,11 @@
 package com.artem.solovev.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -37,4 +40,9 @@ public class User {
     @NonNull
     @Column(nullable = false)
     private String roles;
+
+    @JsonIgnore
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    @Cascade(org.hibernate.annotations.CascadeType.DELETE)
+    private List<Order> orders;
 }

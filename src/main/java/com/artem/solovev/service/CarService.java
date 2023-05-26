@@ -12,4 +12,5 @@ public interface CarService {
     List<Car> searchByModel(String model);
     List<Car> searchByYear(int year);
     List<Car> searchByAvailable(boolean available);
+    Car get(long id);
 }

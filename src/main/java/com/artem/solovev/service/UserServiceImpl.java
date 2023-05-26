@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
     private PasswordEncoder passwordEncoder;
 
@@ -36,6 +36,11 @@ public class UserServiceImpl implements UserService{
     @Override
     public List<User> get() {
         return this.userRepository.findAll();
+    }
+
+    @Override
+    public User get(long id) {
+        return this.userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("User is not exists!"));
     }
 
 

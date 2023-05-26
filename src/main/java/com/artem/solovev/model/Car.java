@@ -33,4 +33,6 @@ public class Car {
     @ManyToOne
     @JoinColumn(name = "car_place_id")
     private CarPlace carPlace;
+
+    private double price;
 }
