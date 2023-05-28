@@ -2,6 +2,7 @@ package com.artem.solovev.controllers;
 
 import com.artem.solovev.dto.ResponseResult;
 import com.artem.solovev.model.Order;
+import com.artem.solovev.model.User;
 import com.artem.solovev.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -36,5 +37,16 @@ public class OrderController {
     public ResponseEntity<ResponseResult<List<Order>>> get(@PathVariable long userId){
         List<Order> orders = this.orderService.getByUserId(userId);
         return new ResponseEntity<>(new ResponseResult<>(orders, null), HttpStatus.OK);
+    }
+
+    @GetMapping
+    public ResponseEntity<ResponseResult<List<Order>>> get(){
+        try {
+            List<Order> orders = this.orderService.get();
+            return new ResponseEntity<>(new ResponseResult<>(orders, null), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(new ResponseResult<>(null, e.getMessage()),
+                    HttpStatus.BAD_REQUEST);
+        }
     }
 }

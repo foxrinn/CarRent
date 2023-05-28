@@ -44,19 +44,20 @@ content-type: application/json
 {
   "country" : "Russia",
   "city" : "Moscow",
-  "address" :"Red Square",
-  "phone" : "+7 999 999 99 99"
+  "address" :"Arbat st.",
+  "phone" : "+7 999 999 99 98"
 }
 
 
 ### POST CAR добавить машину (страница админа)
 POST localhost:8080/car/1
 content-type: application/json
+Authorization: Basic hren@mail.ru 123
 
 {
   "category" : "Luxury",
-  "brand" : "Mercedes-AMG",
-  "model" :"E63",
+  "brand" : "BMW",
+  "model" :"X6",
   "year" : 2021,
   "available" : "false",
   "price" : 2000
@@ -71,11 +72,20 @@ GET localhost:8080/car/category/Luxury
 ### POST order добавление заказа (при введеных данных и выбранной машине создается заказ)
 POST localhost:8080/order/1
 content-type: application/json
+Authorization: Basic hren1@mail.ru 1234
 
 {
-  "countDays" : 5
+  "countDays" : 15
 }
 
 ### GET all order by id user (получение заказа для пользователя по его ID)
-GET localhost:8080/order/1 (выводит заказы для пользователя)
+GET localhost:8080/order/1
+Authorization: Basic hren@mail.ru 123
 
+### GET ORDERS (admin)
+GET localhost:8080/order
+Authorization: Basic hren@mail.ru 123
+
+### GET CARPLACES
+GET localhost:8080/carplace
+Authorization: Basic hren@mail.ru 123

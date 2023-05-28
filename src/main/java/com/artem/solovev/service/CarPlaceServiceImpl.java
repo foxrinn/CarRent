@@ -1,9 +1,12 @@
 package com.artem.solovev.service;
 
 import com.artem.solovev.model.CarPlace;
+import com.artem.solovev.model.User;
 import com.artem.solovev.repository.CarPlaceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class CarPlaceServiceImpl implements CarPlaceService {
@@ -27,5 +30,10 @@ public class CarPlaceServiceImpl implements CarPlaceService {
     public CarPlace get(long id) {
         return this.carPlaceRepository.findById(id).orElseThrow(()
                 -> new IllegalArgumentException("Car place does not exists!"));
+    }
+
+    @Override
+    public List<CarPlace> get() {
+        return this.carPlaceRepository.findAll();
     }
 }
