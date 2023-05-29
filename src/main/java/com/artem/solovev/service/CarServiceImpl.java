@@ -1,6 +1,7 @@
 package com.artem.solovev.service;
 
 import com.artem.solovev.model.Car;
+import com.artem.solovev.model.Order;
 import com.artem.solovev.repository.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -53,5 +54,10 @@ public class CarServiceImpl implements CarService{
     @Override
     public Car get(long id) {
         return this.carRepository.findById(id).orElseThrow(()->new IllegalArgumentException("Car is not exists!"));
+    }
+
+    @Override
+    public List<Car> get() {
+        return this.carRepository.findAll();
     }
 }

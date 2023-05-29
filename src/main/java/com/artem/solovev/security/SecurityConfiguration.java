@@ -37,6 +37,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/user").hasAnyRole("ADMIN")
                 .antMatchers("/carplace").hasAnyRole("ADMIN", "USER")
                 .antMatchers("/carplace/**").hasAnyRole("ADMIN")
+                .antMatchers("/car").hasAnyRole("ADMIN", "USER")
                 .antMatchers(HttpMethod.POST, "/car/**").hasAnyRole("ADMIN")
                 .antMatchers("/car/**").hasAnyRole("ADMIN", "USER")
                 .antMatchers("/order").hasAnyRole("ADMIN")

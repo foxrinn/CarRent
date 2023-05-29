@@ -1,6 +1,7 @@
 package com.artem.solovev.service;
 
 import com.artem.solovev.model.Car;
+import com.artem.solovev.model.Order;
 
 import java.util.List;
 
@@ -13,4 +14,5 @@ public interface CarService {
     List<Car> searchByYear(int year);
     List<Car> searchByAvailable(boolean available);
     Car get(long id);
+    List<Car> get();
 }

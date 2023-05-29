@@ -50,23 +50,23 @@ content-type: application/json
 
 
 ### POST CAR добавить машину (страница админа)
-POST localhost:8080/car/1
+POST localhost:8080/car/3
 content-type: application/json
 Authorization: Basic hren@mail.ru 123
 
 {
-  "category" : "Luxury",
-  "brand" : "BMW",
-  "model" :"X6",
+  "category" : "Medium",
+  "brand" : "Volvo",
+  "model" :"XC40",
   "year" : 2021,
   "available" : "false",
-  "price" : 2000
+  "price" : 750
 }
 
 
-### GET получение машины (отображение у пользователя и админа)
-GET localhost:8080/car/category/Luxury
-
+### GET получение машин (отображение у пользователя и админа)
+GET localhost:8080/car
+Authorization: Basic hren@mail.ru 123
 
 
 ### POST order добавление заказа (при введеных данных и выбранной машине создается заказ)
